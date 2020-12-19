@@ -1,0 +1,297 @@
+/*
+ *
+ * CSS written based on SMACSS architecture.
+ * To learn more, visit: http://smacss.com/
+ * 
+ * For simplicity, no reset or normalize is added. 
+ * To learn more, visit: https://css-tricks.com/reboot-resets-reasoning/
+ *
+*/
+
+
+/* ---- Base Rules ---- */
+html{
+    scroll-behavior: smooth;
+}
+body {
+    background: linear-gradient(0deg, rgb(38, 149, 240) 0%, rgba(212, 79, 79, 0.534) 100%);
+    margin: 25;
+    font-family: 'Merriweather', serif;
+    color-adjust: #eaff2f;
+    text-shadow: 10px 10px 10px rgba(206, 16, 25, 0.774);
+}
+.header  {
+    display: inline-block;
+    padding: 5px 20px;
+    justify-content: flex-end;
+    align-items: baseline; 
+}
+#navbar__list {
+    display: inline-block;
+    padding: 8px 15px;
+    list-style: inside;
+}
+li {   /*SECTION button*/
+    margin-left: 2px;
+    padding: 7px  12px;
+    background-color: rgb(233, 208, 209);
+    border: rgb(87, 170, 19);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease  0s;
+}
+li:hover { /*#button*/
+    background-color:rgb(119, 238, 8);
+}
+
+#button {  /*#TOP*/
+    margin-left: 3px;
+    padding: 11px  11px;
+    background-color: rgb(234, 238, 12);
+    border: rgb(87, 170, 19);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease  0s;
+}
+#button:hover { /*#TOP*/
+    background-color:  rgb(119, 238, 8);
+}
+
+/* Typeography General*/
+h1 {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 3em;
+    margin: 2em 1rem;
+}
+
+@media only screen and (min-width: 35em){
+    h1 {
+        font-size: 7em;
+        margin: 2em 4rem 1em;
+    }
+}
+
+h2 {
+    border-bottom: 1px solid rgba(165, 8, 113, 0.514);
+    font-family: 'Oxygen', Sans-Serif;
+    font-size: 3em;
+    color: rgb(236, 20, 20);
+}
+
+p {
+    line-height: 1.8em;
+    color: rgb(47, 13, 240);
+    text-shadow: 10px 10px 10px rgba(218, 179, 6, 0.918)
+}
+
+/* ---- Layout Rules ---- */
+main {
+    margin: 10vh 1em 10vh;
+}
+
+.main-hero {
+    min-height: 40vh;
+    padding-top: 3em;
+}
+
+section {
+    position: relative;
+    min-height: 80vh;
+    background-color: rgb(235, 178, 178);
+}
+
+
+/* ---- Module Rules ---- */
+
+/* Navigation Styles*/
+.navbar__menu ul {
+    padding-left: 5px;
+    margin: 5px;
+    text-align: lift;
+}
+
+.navbar__menu li {
+    display: inline-block;
+}
+
+.navbar__menu .menu__link {
+    display: inline-flexbox;
+    padding: 1em;
+    font-weight: bold;
+    text-decoration: none;
+    color: goldenrod;
+}
+
+.navbar__menu .menu__link:hover {
+    color: #fff;
+    transition: ease 0.3s all;
+}
+
+/* Header Styles */
+.page__header {
+    background-color: brown;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 5;
+}
+
+/* Footer Styles */
+.page__footer {
+    background: rgba(216, 94, 94, 0.904);
+    padding: 3em;
+    color: #fff;
+}
+
+.page__footer p{
+    color: #fff;
+}
+
+
+/* ---- Theme Rules ---- */
+/* Landing Container Styles */
+.landing__container {
+    padding: 1em;
+    text-align: left;
+}
+
+@media only screen and (min-width: 35em){
+    .landing__container {
+        max-width: 90em;
+        padding: 4em;
+    }
+}
+
+section:nth-of-type(even) .landing__container {
+    margin-right: 0;
+    margin-left: auto;
+    text-align: right; 
+}
+
+/* Background Circles */
+/* Note that background circles are created with psuedo elements before and after */
+/* Circles appear to be random do to use of :nth-of-type psuedo class */
+section:nth-of-type(odd) .landing__container::before {
+    content: '';
+    background: rgba(211, 34, 34, 0.815);
+    position: absolute;
+    z-index: -5;
+    width: 20vh;
+    height: 20vh;
+    border-radius: 50%;
+    opacity: 0;
+    transition: ease 0.5s all;
+}
+
+section:nth-of-type(even) .landing__container::before {
+    content: '';
+    background: rgba(207, 72, 19, 0.712);
+    background: linear-gradient(0deg, rgba(117, 105, 105, 0.815) 0%, rgba(49, 32, 32, 0.863) 100%);
+    position: absolute;
+    top: 3em;
+    right: 3em;
+    z-index: -5;
+    width: 10vh;
+    height: 10vh;
+    border-radius: 50%;
+    opacity: 0;
+    transition: ease 0.5s all;
+}
+
+section:nth-of-type(3n) .landing__container::after {
+    content: '';
+    background: rgb(150, 64, 64);
+    background: linear-gradient(0deg, rgba(99, 201, 214, 0.219) 0%, rgba(65, 45, 45, 0.2) 100%);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -5;
+    width: 10vh;
+    height: 10vh;
+    border-radius: 50%;
+    opacity: 0;
+    transition: ease 0.5s all;
+}
+
+section:nth-of-type(3n + 1) .landing__container::after {
+    content: '';
+    background: rgb(172, 154, 154);
+    background: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%);
+    position: absolute;
+    right: 20vw;
+    bottom: -5em;
+    z-index: -5;
+    width: 15vh;
+    height: 15vh;
+    border-radius: 50%;
+    opacity: 0;
+    transition: ease 0.5s all;
+}
+
+
+/* ---- Theme State Rules ---- */
+/* Section Active Styles */
+/* Note: your-active-class class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
+section.your-active-class {
+    background: rgb(119, 238, 8);
+    background: linear-gradient(0deg, rgba(157, 173, 9, 0.877) 0%, rgba(241, 147, 234, 0.87) 100%);
+}
+
+section.your-active-class .landing__container::before {
+    opacity: 1;
+    animation: rotate 5s linear 2s infinite forwards;
+}
+
+/*.active_class .landing__container::after*/
+section.your-active-class .landing__container::after {
+    opacity: 1;
+    animation: rotate 5s linear 2s infinite forwards reverse;
+}
+
+/* Section Active Styles Keyframe Animations */
+@keyframes rotate {
+	from {
+		transform: rotate(0deg)
+		           translate(-1em)
+		           rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg)
+		           translate(-1em) 
+		           rotate(-360deg);
+    }
+    /*******************************/
+}
+section.active_class  {
+    background: rgb(27, 90, 226);
+    background: linear-gradient(0deg, rgba(56, 82, 231, 0.877) 0%, rgb(233, 212, 26) 100%);
+    transition: all 0.3s ease  0s;
+    list-style-position:inherit;
+    display: flexbox;
+    padding: 0px 10px;
+    color: rgb(81, 195, 240);
+}
+section.active_class .landing__container::before {
+    opacity: 1;
+    animation: rotate 5s linear 2s infinite forwards;
+}
+
+/*.active_class .landing__container::after*/
+section.active_class .landing__container::after {
+    opacity: 1;
+    animation: rotate 5s linear 2s infinite forwards reverse;
+}
+
+/* Section Active Styles Keyframe Animations */
+@keyframes rotate {
+	from {
+		transform: rotate(0deg)
+		           translate(-1em)
+		           rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg)
+		           translate(-1em) 
+		           rotate(-360deg);
+	}
+}
